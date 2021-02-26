@@ -9,7 +9,6 @@
 \RequirePackage[scaled=0.95]{helvet}
 \RequirePackage{pgfgantt}
 
-
 %%%%%%%%%%%%%%%% Dimensiones
 % PDF 
 \geometry{
@@ -138,6 +137,27 @@
    \end{minipage}
    \vspace*{\stretch{3}}
    \clearpage
+}
+
+\newfloat{captura}{hbp}{los} %Creamos el nuevo elemento flotante que guardara las imagenes en la lista
+
+
+\floatname{captura}{Captura} %Damos un nombre que aparecerá delante del numero de cada imagen, en nuestro caso Captura (C mayuscula)
+
+
+\newcommand{\listofcapturas}{\listof{captura}{Lista de capturas}}%Creamos el comando que invoca la lista de las capturas
+
+
+
+%Creamos el comando que recibe 3 parametros (Imagen, Caption y etiqueta) de la lista anteriormente mencionada
+\newcommand{\impr}[3]{
+    \begin{captura}
+         \begin{center}
+            \includegraphics[width=0.8\textwidth]{#1}
+        \end{center}
+        \caption{#2}
+        \label{fig:#3}
+    \end{captura}
 }
 
 
